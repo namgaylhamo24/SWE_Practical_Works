@@ -113,4 +113,14 @@ print(f"Linear Search (All Occurances): Indices of 5 are {result}")
 
 ## Ex: B
 ## Implement a function that uses binary search to find the insertion point for a target value in a sorted list
+def find_insertion_point(arr, target):
+    left, right = 0, len(arr) - 1
 
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+        return left 
