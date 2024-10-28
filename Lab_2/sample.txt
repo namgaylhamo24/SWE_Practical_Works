@@ -1,0 +1,10 @@
+
+Hello! This is a sample text file. It is used for text analysis in Python labs.
+The purpose of this file is to provide content that can be analyzed by different Python functions.
+Text analysis is a powerful tool to extract information from documents.
+
+This text file includes multiple lines, a variety of words, and different word lengths.
+Words like 'Python' and 'text' are repeated multiple times to test the counting functions.
+Some words are short, some are long, and some are unique.
+
+Happy analyzing!
