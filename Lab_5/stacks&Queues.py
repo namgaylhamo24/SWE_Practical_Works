@@ -116,34 +116,5 @@ def hot_potato(names, num):
 names = ["Bill", "David", "Susan", "Jane", "Kent", "Brad"]
 print(hot_potato(names, 7))  # The winner's name will be printed
 
-## Exercises for Students:
-## Implement a function that uses a stack to evaluate postfix expressions.
-def evaluate_postfix(expression):
-    stack = Stack()
-    operators = {'+', '-', '*', '/'}
 
-    for char in expression.split():
-        if char not in operators:
-            # If it's an operand, push it onto the stack
-            stack.push(int(char))
-        else:
-            # If it's an operator, pop the last two operands and apply the operator
-            oprnd2 = stack.pop()
-            oprnd1 = stack.pop()
-            if char == '+':
-                stack.push(oprnd1 + oprnd2)
-            elif char == '-':
-                stack.push(oprnd1 - oprnd2)
-            elif char == '*':
-                stack.push(oprnd1 * oprnd2)
-            elif char == '/':
-                stack.push(oprnd1 / oprnd2)
 
-    return stack.pop()
-
-# Test the function
-print(evaluate_postfix("3 4 +"))      # Should print 7
-print(evaluate_postfix("10 2 8 * + 3 -"))  # Should print 23
-
-## Ex: B
-## 
