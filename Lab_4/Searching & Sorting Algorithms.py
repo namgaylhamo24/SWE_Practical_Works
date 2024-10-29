@@ -124,3 +124,11 @@ def find_insertion_point(arr, target):
             right = mid - 1
 
         return left 
+
+# Test the function
+sorted_list = [1, 3, 4, 6, 8, 10]
+target = 5
+insertion_point = find_insertion_point(sorted_list, target)
+print(f"Insertion point for {target} is index {insertion_point}")
+
+
