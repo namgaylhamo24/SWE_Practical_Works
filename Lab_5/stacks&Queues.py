@@ -116,5 +116,104 @@ def hot_potato(names, num):
 names = ["Bill", "David", "Susan", "Jane", "Kent", "Brad"]
 print(hot_potato(names, 7))  # The winner's name will be printed
 
+## Ex: A
+## Implement a function that uses a stack to evaluate postfix expressions.
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        else:
+            raise IndexError("Stack is empty")
+
+def evaluate_postfix(expression):
+    stack = Stack()
+    operators = {'+', '-', '*', '/'}
+
+    for token in expression.split():
+        if token.isdigit():  
+            stack.push(int(token))
+        elif token in operators:  
+            right = stack.pop()
+            left = stack.pop()
+            if token == '+':
+                stack.push(left + right)
+            elif token == '-':
+                stack.push(left - right)
+            elif token == '*':
+                stack.push(left * right)
+            elif token == '/':
+                stack.push(int(left / right)) 
+        else:
+            raise ValueError(f"Unknown token: {token}")
+
+    return stack.pop() if not stack.is_empty() else None
+
+# Test the function
+expression = "3 4 + 2 * 7 /"
+print(evaluate_postfix(expression)) 
+
+## Ex: B
+## Implement a function that uses a stack to evaluate postfix expressions.
+class Stack:
+    def __init__(self):
+        self.items = []
+    
+    def is_empty(self):
+        return len(self.items) == 0
+    
+    def push(self, item):
+        self.items.append(item)
+    
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        else:
+            raise IndexError("Stack is empty")
+
+def evaluate_postfix(expression):
+    stack = Stack()
+    
+    # Split the expression by spaces to handle multi-digit numbers
+    tokens = expression.split()
+    
+    for token in tokens:
+        if token.isdigit():  # If it's an operand, push it to the stack
+            stack.push(int(token))
+        else:  
+            right_operand = stack.pop()
+            left_operand = stack.pop()
+            
+            # Perform the operation based on the operator
+            if token == '+':
+                result = left_operand + right_operand
+            elif token == '-':
+                result = left_operand - right_operand
+            elif token == '*':
+                result = left_operand * right_operand
+            elif token == '/':
+                result = left_operand // right_operand  
+            
+            # Push the result back onto the stack
+            stack.push(result)
+    
+    # The final result will be the last item in the stack
+    return stack.pop()
+
+# Test the function
+expression = "5 3 + 8 * 4 -"  # This represents the expression (5 + 3) * 8 - 4
+result = evaluate_postfix(expression)
+print(f"Result of postfix expression '{expression}': {result}")
+
+
+
 
 
