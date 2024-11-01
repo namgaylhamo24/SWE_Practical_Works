@@ -671,13 +671,8 @@ print("Post-order:", bst.postorder_traversal())
 print("Level-order:", bst.level_order_traversal())
 print("Height of the BST:", bst.height())  
 print("Is the BST valid?", bst.is_valid_bst())  
-print(bst.search(4))  
-print(bst.search(9))  
 
-bst.delete(3)
-print("After deleting 3:", bst.inorder_traversal())
-print("Height of the BST after deletion:", bst.height())  
-print("Is the BST valid after deletion?", bst.is_valid_bst()) 
+ 
 
 
 
